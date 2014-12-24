@@ -10,7 +10,7 @@ _We don't yet have a class 2 ssl certificate so we do not have a sub-domain at t
 
 **The following information is part of our first-release, and is a tentative outline subject to change.**  To complete our API specifications document we are still working on our internal content.
 
-### Standard API Formats
+### standard api formats
 
 <table>
     <tr>
