@@ -1,11 +1,19 @@
 
 # contribute
 
-You can find the source at [github.com/cdelorme/csideanime.com](https://github.com/cdelorme/csideanime.com).
+This project is new and no release is available yet.  **While contributions are welcome, we will not be accepting pull requests until after the first release.**
 
-Our source is GPLv3 licensed, and contributors are welcome.
+There is currently only one primary code-author, and contributions have been made with a request that they remain _anonymous_, as well as suggestions on our existing forum ([seaofnumbers.com](https://www.seaofnumbers.com)).
 
-**During our first release we will not be accepting pull-requests.  This is to give us time to create something that fills our objectives before we hand out all-access-passes.**
+The source is available at [github.com/cdelorme/csideanime.com](https://github.com/cdelorme/csideanime.com), and the project is GPLv3 licensed.
 
-However, the issue tracker is a great way to let us know about bugs, feature requests, and any other concerns.  We will be actively policing it.
+The projects backend is `golang` which enforces its own style standards.  The javascript frontend has no coding style requirements at the moment.
 
+Please file any **feature requests**, **enhancements**, **bug reports**, and **suggestions** through the [issue tracker](https://github.com/cdelorme/csideanime.com/issues).
+
+After the alpha release we will happily accept:
+
+- contributions to documentation
+- translations
+
+_We will be hesitant to accept code submissions until after beta._
