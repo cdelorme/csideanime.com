@@ -12,10 +12,18 @@ Our deadline for the beta release is early March 2015, which does not give us a 
 
 The tough part for this section is going to be identifying critical services as opposed to "desired" services.
 
-Here is a known list:
+Here tentative outline of services for alpha release:
 
-- open-authentication (oauth /w google & facebook)
+- [frontend](services/frontned.md)
+- [javascript](services/javascript.md)
+- [permissions system](services/permissions-system.md)
+- [member management](services/member-management.md)
+- [open authentication](services/open-authentication.md)
+- [tag management](services/tag-management.md)
+- [thread management](services/thread-management.md)
+- [post management](services/post-management.md)
 
+_The karma engine and statistics systems are pending, because they are key elements to what I want to build, but are also complicated and may not be possible to have built in time._
 
 
 ## beta release
