@@ -104,9 +104,48 @@ At the moment we do not have a UX engineer. However, when we begin beta developm
 Since we are building an API the good news is we can easily swap out one front­end for another.  With a well ­built front-end employing the immediate­-render technique, we can possibly also reuse all the client­-side services that register data-­callbacks and really only need to rebuild the rendering logic.
 
 
-## code layers
+# api core
 
 **The core of the application will exist above our major code layers, and is responsible for establishing all connections with external resources, creating each of them and supplying them with their dependencies.  It will also start the proxy service layer that connects with nginx.**
+
+The api will load server settings from a "standard path" configuration file:
+
+- `/etc/csideanime.com.json`
+- `~/.csideanime.com.json`
+- `./csideanime.com.json`
+
+Expect format will be json, and it should contain any `application-level-security-config` options, which are things that are best kept out of "mortal hands" (eg. administrators/moderators).
+
+_We may (optionally) also look at environment variables for this information, and others such as database credentials, but a configuration file would supercede / override environment variables._
+
+Our core should instantiate, configure, and connect (in order):
+
+- data access layers
+- service layers
+- controllers
+- router
+
+By creating all our core components up front we greatly simplify code complexity and improve readability.
+
+Dependencies are created and supplied up front, without any abstraction layers, lazy loading, factors, inversion of control, or service managers.
+
+_This may add to the initial load-time by a small amount, but should take care of the initial warmup that would be required in lazy-loading, and prevents our code from becoming difficult to trace and debug.  Further, we may improve member performance by creating objects sequentially before space fills up and becomes fragmented._
+
+After connecting all of our core, we register all controllers with the router.
+
+Controllers contain the routes, and the router uses wildcard­left routing to reach them, allowing complete support for any number of `clean­-url` parameters and additional constructs without complicating the server or proxy configuration.
+
+Finally, we supply the router to a new server, and have the server begin listening for incoming traffic.
+
+
+### settings
+
+@TODO
+
+I would like to identify all application-level settings and document them here.
+
+
+## code layers
 
 Our api will be made up of four major layers of components, giving us a solid pattern to work with and good separation of concerns:
 
@@ -142,3 +181,16 @@ The data access layer interfaces with our database, and depends on models.
 Models are stand-alone representations of data, which exist to house and manipulate data locally.  _No model-functions should deal with external resources._
 
 Keeping out code as simple as possible, and following these rules, will greatly reduce the potential for security exploits and bugs.
+
+
+## design concepts
+
+The following concepts need to be tested, but are considerations for our applications construction:
+
+- client side caching (lscache?)
+- immediate-rendering (mithriljs?)
+- pushState history/url augmentation
+- utc-only time storage and client-side conversion using client-os
+- open authentication system /w google & facebook connection
+- centralized callback handler, _requires a well-designed standard message format._
+- nginx proxy cache invalidations, and alternative caching layers that may be more flexible?
