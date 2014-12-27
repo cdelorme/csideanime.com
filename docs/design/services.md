@@ -3,25 +3,27 @@
 
 **This is a tentative outline of services, not a comprehensive list, and is subject to change and grow.**
 
+The following list has been carefully picked apart to build a more comprehensive summary, and separate files with details created to match:
+
+- [frontend](services/frontned.md)
+- [javascript](services/javascript.md)
+
 The following is a generic list of services, _which will need to later be broken into frontend and backend development objectives_:
 
-- navigation (home, login, account, admin, members)
-- admin section /w global settings, member management, ban management, and permission management pages
-    - dynamic header image rotation is an example of admin services
 - permission system /w groups & actions
 - open authentication
 - member registration
 - chat system
 - tag management system (add/delete/apply-to-post-or-thread)
-- threads by tag by popularity/activity
+    - tag grouping for identifying companies and authors
 - thread management (create/edit/delete)
+    - threads by tag by popularity/activity
 - post management (create/edit/delete)
 - search mechanism, auto-complete by tag, otherwise fulltext search
     - advanced search engine?
 - karma system
 - site-theme system
 - caching & search engine (likely elastic search)
-- member profiles; settings, avatars, game ids, contact info, theme selection
 - private conversations (member-to-one-or-more-members)
 - statistics /w per-member and forum averages, fancy charts and graphs (maybe?)
     - page views, searches run, posts/threads made, top contributing members
@@ -29,13 +31,11 @@ The following is a generic list of services, _which will need to later be broken
     - accept uploads
     - store name as metadata, and rename to sha256 hash (to avoid duplicates)
     - push to s3, provide cloudfront url
-- user blogs?
+- member blogs
 - content release tracking?
 - watch-lists & progress-tracking-lists?  Level up schemes?
 - anime/manga/game/etc management system
     - review system for anime/manga/game/etc
-- tag grouping for identifying companies and authors
-- UI toggles to use permissions without cluttering UI during normal use
 
 _We still need to detail the behavior and logic behind each of these services, and update the list if we find mistakes._
 
@@ -58,6 +58,10 @@ While I want to both support and promote user-uploaded multimedia, I do **not** 
 Ideally we want our admin and member profile menus to be extremely simple.  Instead of a dozen layered pages, I'd rather have one or two very specific pages.  For example, the administrative forum settings should be on a single page, and may not even be necessary in a first-release.
 
 During an earlier design I considered making ban-management flexible instead of global, as well as making moderation specific to area.  However, with a tag based system and the ability for any user to add and remove tags, it isn't possible to implement it fairly.  Was this a heavily desired feature, or can we deal without it?  Are moderators going to be intimidated if their privileges are no-longer "per-board" but rather global?
+
+Do we want to separate oauth, profiles, and core member structs so when "list" is requested we can fulfill it?  Or do we want to enable json omitted fields?
+
+Do we want a single communications module for threads and posts, or individual modules for each?  Is there any coupling that we can expect to be a problem between them?
 
 
 ## solutions
