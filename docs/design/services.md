@@ -58,3 +58,8 @@ While I want to both support and promote user-uploaded multimedia, I do **not** 
 Ideally we want our admin and member profile menus to be extremely simple.  Instead of a dozen layered pages, I'd rather have one or two very specific pages.  For example, the administrative forum settings should be on a single page, and may not even be necessary in a first-release.
 
 During an earlier design I considered making ban-management flexible instead of global, as well as making moderation specific to area.  However, with a tag based system and the ability for any user to add and remove tags, it isn't possible to implement it fairly.  Was this a heavily desired feature, or can we deal without it?  Are moderators going to be intimidated if their privileges are no-longer "per-board" but rather global?
+
+
+## solutions
+
+I like freehand entry, and if a tag does not exist, it would be nice to be able to provide the option to add it.  However, the option should be more explicit than hitting enter, otherwise it would be too easy to accidentally enter mispelled tags.
