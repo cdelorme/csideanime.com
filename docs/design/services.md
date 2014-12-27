@@ -12,19 +12,15 @@ The following list has been carefully picked apart to build a more comprehensive
 - [open authentication](services/open-authentication.md)
 - [chat system](services/chat-system.md)
 - [tag management](services/tag-management.md)
+- [thread management](services/thread-management.md)
+- [post management](services/post-management.md)
+- [statistics engine](services/statistics-engine.md)
+- [search engine](services/search-engine.md)
+- [karma system](services/karma-system.md)
 
 The following is a generic list of services, _which will need to later be broken into frontend and backend development objectives_:
 
-- thread management (create/edit/delete)
-    - threads by tag by popularity/activity
-- post management (create/edit/delete)
-- search mechanism, auto-complete by tag, otherwise fulltext search
-    - advanced search engine?
-- karma system
 - site-theme system
-- caching & search engine (likely elastic search)
-- statistics /w per-member and forum averages, fancy charts and graphs (maybe?)
-    - page views, searches run, posts/threads made, top contributing members
 - member media upload & management system
     - accept uploads
     - store name as metadata, and rename to sha256 hash (to avoid duplicates)
