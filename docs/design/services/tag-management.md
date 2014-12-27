@@ -12,6 +12,19 @@ A tag is a simple bit of text that represents metadata about the related entity.
 
 The tag system _may be_ a simplified version of the search system, without full-text indexing.  Ideally the search system should be separate and connected to a search cache such as elasticsearch.
 
+This system would need to support the following actions:
+
+- create tag
+- delete tag
+- update tag
+- add tag group
+- remove tag group
+- update tag group
+- associate tag with tag group
+- unassociate tag with tag group
+
+_We still also need to consider how tag groups work, and what to optionally append to them.  This will determine what additional actions, if any, will be needed._
+
 
 ## data design considerations
 
