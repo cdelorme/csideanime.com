@@ -7,13 +7,13 @@ The following list has been carefully picked apart to build a more comprehensive
 
 - [frontend](services/frontned.md)
 - [javascript](services/javascript.md)
-- [permissions](services/permissions.md)
+- [permissions system](services/permissions-system.md)
+- [member management](services/member-management.md)
+- [chat system](services/chat-system.md)
 
 The following is a generic list of services, _which will need to later be broken into frontend and backend development objectives_:
 
 - open authentication
-- member registration
-- chat system
 - tag management system (add/delete/apply-to-post-or-thread)
     - tag grouping for identifying companies and authors
 - thread management (create/edit/delete)
@@ -24,7 +24,6 @@ The following is a generic list of services, _which will need to later be broken
 - karma system
 - site-theme system
 - caching & search engine (likely elastic search)
-- private conversations (member-to-one-or-more-members)
 - statistics /w per-member and forum averages, fancy charts and graphs (maybe?)
     - page views, searches run, posts/threads made, top contributing members
 - member media upload & management system
@@ -67,3 +66,5 @@ Do we want a single communications module for threads and posts, or individual m
 ## solutions
 
 I like freehand entry, and if a tag does not exist, it would be nice to be able to provide the option to add it.  However, the option should be more explicit than hitting enter, otherwise it would be too easy to accidentally enter mispelled tags.
+
+A possible solution to the `developer` group concern would be using the mock api for operations.  However, because these do not actually run against the database, it limits what can be tested.  Another option is to force developers to run their tests on their local system with mock data.  _There isn't really a way to resolve the "has access to the server" concern._  As the owner of the domain name, server, and hosting, I have a biased level of access.
