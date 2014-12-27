@@ -39,3 +39,9 @@ How we store the data will effect how we retreive it.  Since permissions will li
 One consideration is that golang is stateful.  We _could_ create a new ACL layer per requested operation and load in the permissions fresh.
 
 An alternative consideration would be to use a single shared ACL that refreshes every so often, but otherwise retains the permissions in memory.  _This could create, for a very short time, discrepancies between servers when permissions change in a scalable infrastructure._
+
+The basic storage concept is simple.  Create a `permissions` collection, and the schema of the documents can be a string `name` and `actions` string array.
+
+However, the problem is with managing groups and actions.  If a group is freshly made and has no actions, or an action is added but not assigned to any group, we need to persist them.  We could throw them into entirely independent collections, but for this system it might work best to create an `all_actions` and `all_groups` document, and prevent the creation of a group by those names (or something similar to those names).
+
+With that design, any changes to actions and groups could be saved a very simple operation.
