@@ -9,13 +9,12 @@ The following list has been carefully picked apart to build a more comprehensive
 - [javascript](services/javascript.md)
 - [permissions system](services/permissions-system.md)
 - [member management](services/member-management.md)
-- [chat system](services/chat-system.md)
 - [open authentication](services/open-authentication.md)
+- [chat system](services/chat-system.md)
+- [tag management](services/tag-management.md)
 
 The following is a generic list of services, _which will need to later be broken into frontend and backend development objectives_:
 
-- tag management system (add/delete/apply-to-post-or-thread)
-    - tag grouping for identifying companies and authors
 - thread management (create/edit/delete)
     - threads by tag by popularity/activity
 - post management (create/edit/delete)
