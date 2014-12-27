@@ -64,4 +64,81 @@ Modifying the URL and history of the browser is possible in all but IE9­ and Op
 
 The requestAnimationFrame is a nice alternative to registering a callback for anything that modifies the application state. It is also supported in all modern browsers, except IE9­ and Opera Mini. Ideally this can be used to rebuild sections of the page anytime the state has been updated, which could be as simple as comparing timestamps to as complex as comparing virtual DOM.
 
-_In the worst­case scenario our code should gracefully degrade, depriving users of these features, while still running standard ajax calls and operating like a normal site would._
+_In the worst­case scenario our code should gracefully degrade, depriving members of these features, while still running standard ajax calls and operating like a normal site would._
+
+
+## static content
+
+Ideally we will have a limited number of static pages, which dynamically load all the contents of the site.
+
+Using features such as `pushState` to change the URL dynamically while loading new contents from the API.  Merging assets into single, minified files which can be delivered via nginx or via our content delivery network.
+
+- index.html
+- css/main.css
+- js/main/js
+
+_Ideally we would want a source map for production errors, but for the start we may just use the code without minification._  For development and testing we want the separate and fully spaced versions of these files, and a utility to merge them.
+
+The basic index.html page may contain a skeletal layout, plus some hard-coded elements like the default menu, login form, static footer, and header.  Most of this content should be able to be rebuilt using javascript once the requests begin.
+
+**Any and all media should be loaded from our CDN and not hosted by Digital Ocean.**
+
+**Javascript Systems:**
+
+- centralized service registration and API callback system
+    - tied to lscache
+- immediate render system
+- login & registration (credentials not profiles)
+- member access (profiles & names vs credentials)
+- threads service (should encapsulate threads, posts, and tags)
+
+All services must be built with hmac­-sha in mind, to validate data over the wire in both directions.  _This must be designed in a way that does not restrict the number of open tabs or concurrent requests._
+
+Centralized callbacks means incoming data can be validated globally from the service registration component, and then shuffled to the appropriate named/registered service.  This allows us to create modular code that is, by design, used only-once (efficiently).
+
+
+## user experience
+
+At the moment we do not have a UX engineer. However, when we begin beta development I would be open to having someone fill this position to help us improve the overall design of the site for our members.
+
+Since we are building an API the good news is we can easily swap out one front­end for another.  With a well ­built front-end employing the immediate­-render technique, we can possibly also reuse all the client­-side services that register data-­callbacks and really only need to rebuild the rendering logic.
+
+
+## code layers
+
+**The core of the application will exist above our major code layers, and is responsible for establishing all connections with external resources, creating each of them and supplying them with their dependencies.  It will also start the proxy service layer that connects with nginx.**
+
+Our api will be made up of four major layers of components, giving us a solid pattern to work with and good separation of concerns:
+
+<table>
+    <tr>
+        <th>Layer</th>
+        <th>Purpose</th>
+    </tr>
+    <tr>
+        <td>Controller</td>
+        <td>Handles routed connections, parses supplied arguments and handles controller-level-conditions and first-pass-acl.  Generally depends on two or more services, and responsible for replying with final results to the request object.</td>
+    </tr>
+    <tr>
+        <td>Service</td>
+        <td>Handles business logic and second-pass-acl.  Depends on the data layer and may depend directly on some models.</td>
+    </tr>
+    <tr>
+        <td>Data Access</td>
+        <td>Depends on models, connets to database, manipulates data, and handles third-pass-acl.</td>
+    </tr>
+    <tr>
+        <td>Model</td>
+        <td>Definition of the data (eg. structs), should have no dependencies.</td>
+    </tr>
+</table>
+
+All valid requests will be delivered to a controller, which will determine the required action to perform.
+
+Each action will depend on one or more services.  _Services should not depend on other services directly, the controller should coordinate operations between them._  Services may, independently, require specific models.
+
+The data access layer interfaces with our database, and depends on models.
+
+Models are stand-alone representations of data, which exist to house and manipulate data locally.  _No model-functions should deal with external resources._
+
+Keeping out code as simple as possible, and following these rules, will greatly reduce the potential for security exploits and bugs.
