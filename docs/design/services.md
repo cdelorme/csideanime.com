@@ -7,10 +7,10 @@ The following list has been carefully picked apart to build a more comprehensive
 
 - [frontend](services/frontned.md)
 - [javascript](services/javascript.md)
+- [permissions](services/permissions.md)
 
 The following is a generic list of services, _which will need to later be broken into frontend and backend development objectives_:
 
-- permission system /w groups & actions
 - open authentication
 - member registration
 - chat system

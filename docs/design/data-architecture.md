@@ -93,3 +93,9 @@ All endpoints will need a service layer to manage any complexity separate from t
 
 We may consider creating data access layers that handle acquisition, modification of, and saving of data separate from the service layer.
 
+
+# database first-run
+
+We should create a first-run script that can create and populate a database with a set of defaults, including the appropriate indexes etc.
+
+If we can also provide a test-data script to generate fake data for testing purposes that would help developers.
