@@ -99,3 +99,18 @@ We may consider creating data access layers that handle acquisition, modificatio
 We should create a first-run script that can create and populate a database with a set of defaults, including the appropriate indexes etc.
 
 If we can also provide a test-data script to generate fake data for testing purposes that would help developers.
+
+
+# design concerns
+
+I still have concerns with mongodb's implementation.  There are so many problem areas tbat it's hard to express my frustrations.
+
+- schema design is required if you want performance, indexes matter
+- by-reference documents need to be pulled separately, which creates a big performance hit (well, about as bad as relational-sql would be)
+- document size shouldn't expand by more than 20% or exceed 16mb
+
+If I wanted to store everything under mongodb as efficiently as possible then documents should represent whole pages or "requests".  We suffer duplication issues if we try to use embedded documents, which hurts update performance (although updates in most cases here would be rare).
+
+The last one is killer, because it prevents me from using intelligent schema for mongodb out of concern for file relocation when the 20% is exceeded.  For example, changes are I can very easily represent every media upload a user will make in the system as part of their profile or at the very least as a single document.  However, because uploads would happen sequentially it'd take only two to cause the problem with the 20% size change, and it'd happen multiple times until the document reached a decent size.
+
+I'd very much like to have a graph-style database that provides json output, a simplified query syntax, and efficient scaling without master-slave architecture.  Heck if it can fully automate sharding and replication based on its own measured metrics, that'd be spectacular.

@@ -17,21 +17,12 @@ The following list has been carefully picked apart to build a more comprehensive
 - [statistics engine](services/statistics-engine.md)
 - [search engine](services/search-engine.md)
 - [karma system](services/karma-system.md)
+- [theming](services/theming.md)
+- [upload system](services/upload-system.md)
+- [blog system](services/blog system.md)
+- [media lists](services/media-lists.md)
 
-The following is a generic list of services, _which will need to later be broken into frontend and backend development objectives_:
-
-- site-theme system
-- member media upload & management system
-    - accept uploads
-    - store name as metadata, and rename to sha256 hash (to avoid duplicates)
-    - push to s3, provide cloudfront url
-- member blogs
-- content release tracking?
-- watch-lists & progress-tracking-lists?  Level up schemes?
-- anime/manga/game/etc management system
-    - review system for anime/manga/game/etc
-
-_We still need to detail the behavior and logic behind each of these services, and update the list if we find mistakes._
+_If this list is missing features, open an [issue](https://github.com/cdelorme/csideanime.com/issues)._
 
 
 ## concerns
