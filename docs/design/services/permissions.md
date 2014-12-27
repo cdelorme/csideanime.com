@@ -34,5 +34,8 @@ The design we are looking to use will require that the/an access control layer b
 
 ## data design considerations
 
-Because golang is stateful, we will need to reload the groups and permissions for every request.  Therefore, we should find an efficient way of storing groups and actions.  Similarly, how we store actions and groups will also effect how easily we can create a management page.  _The management page is slightly less of a priority since it won't be loaded per page per user._
+How we store the data will effect how we retreive it.  Since permissions will likely need to be retreived regularly, a good schema is essential.  Of a lesser priority, it also effects how we generate the permission management page.
 
+One consideration is that golang is stateful.  We _could_ create a new ACL layer per requested operation and load in the permissions fresh.
+
+An alternative consideration would be to use a single shared ACL that refreshes every so often, but otherwise retains the permissions in memory.  _This could create, for a very short time, discrepancies between servers when permissions change in a scalable infrastructure._
