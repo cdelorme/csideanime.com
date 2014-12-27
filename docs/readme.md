@@ -1,12 +1,15 @@
 
-# api
+# documentation
 
-Our documentation covers two views of the API:
+Our documentation is split into sections:
 
-- [internal](internal/)
-- [external](external/)
+- [design](design/)
+- [api documentation](api/)
+- [installation](application/)
 
-If you are a developer looking to use our API for your own services, then you want the [external docs](external/).
+If you are a developer looking to connect and use us as a resource, check out our [api documentation](api/).
 
-If you are a contributor to our project and want to understand how the code interfaces then you want to look at our [internal docs](internal/).
+If you are looking to understand or contribute to our project, checkout our [design documentation](design/).
+
+If you are looking to install our application and run it, [we wrote up some help files](application/).
 
