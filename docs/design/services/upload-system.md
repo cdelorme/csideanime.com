@@ -22,3 +22,5 @@ If possibly I'd like to identify common types and enable the system to intellige
 ## data design considerations
 
 We would need each record to have a `name` and a `url`.  Optionally they would have `tags` and `disabled`.
+
+_Upload limitations are still under consideration.  Common limitations include file size, and file type.  Ideally we should have no file size limit, or a moderately high file size limit (unless uploads is abused).  Mimetype detection can be used server-side to verify file types, and reject file uploads as needed, although support for images, text/word/pdf documents, and possibly compressed files would be ideal, videos would be a nice addition as well._

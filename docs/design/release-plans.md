@@ -31,6 +31,15 @@ _The karma engine and statistics systems are pending, because they are key eleme
 The beta release will focus on bug-fixes from the alpha-release, and a plan to migrate data from our existing site.  The migration is expected to be the harder part here.  If we migrate posts and threads we also need to migrate user accounts, but the login schema being so different will make that very difficult.
 
 
+## stable release
+
+After the beta release all missing, incomplete, or broken features will be worked on long-term to produce a stable release.
+
+The stable release should include all documented services in a final and complete state, which is not to say they cannot be improved or added to later.
+
+The stable release must be bug free, which means comprehensive testing should be performed on all components prior to tagging.  Semantic versioning will be used from here forward.
+
+
 ## future releases
 
-After the beta release, we will focus on all the missing, incomplete, or broken features.  This will likely be a fast paced process, and involve quite a bit of innovation.  Ideally our alpha->beta foundation will leave us with a sturdy design that won't end up with dozens of API breaking changes and semantic version increments as a result.
+After reaching a stable release, no unstable code should be pushed to master.  All code changes will be triaged using feature-branches, allowing multiple features to be worked on independently without introducing breaking changes.
