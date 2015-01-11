@@ -34,3 +34,5 @@ Other connected components we need to consider:
 ## data design considerations
 
 If we organize the data in the right ways we can probably write some slick simplified code to handle separation of member from member profile logic.  My guess is that member profiles will be a sub-document.
+
+
