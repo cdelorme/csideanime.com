@@ -55,6 +55,7 @@ We will want to make sure the following features are viable for use in new ways 
 - [localStorage](http://caniuse.com/#feat=namevalue-storage)
 - [pushState](http://caniuse.com/#feat=history)
 - [requestAnimationFrame](http://caniuse.com/#feat=requestanimationframe)
+- [websocket](http://caniuse.com/#search=websocket)
 
 The above features are available in all modern browsers, including (and especially) mobile devices.
 
@@ -65,6 +66,8 @@ Modifying the URL and history of the browser is possible in all but IE9­ and Op
 The requestAnimationFrame is a nice alternative to registering a callback for anything that modifies the application state. It is also supported in all modern browsers, except IE9­ and Opera Mini. Ideally this can be used to rebuild sections of the page anytime the state has been updated, which could be as simple as comparing timestamps to as complex as comparing virtual DOM.
 
 _In the worst­case scenario our code should gracefully degrade, depriving members of these features, while still running standard ajax calls and operating like a normal site would._
+
+Whole websocket support is incredibly high, implementation is not easy, especially for a complicated system with fallback code.  I intend to implement it, but the alpha/beta release will likely only feature polling.
 
 
 ## static content
