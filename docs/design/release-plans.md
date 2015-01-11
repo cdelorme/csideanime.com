@@ -14,14 +14,14 @@ The tough part for this section is going to be identifying critical services as 
 
 Here tentative outline of services for alpha release:
 
-- [frontend](services/frontned.md)
-- [javascript](services/javascript.md)
-- [permissions system](services/permissions-system.md)
-- [member management](services/member-management.md)
 - [open authentication](services/open-authentication.md)
+- [member management](services/member-management.md)
+- [permissions system](services/permissions-system.md)
 - [tag management](services/tag-management.md)
 - [thread management](services/thread-management.md)
 - [post management](services/post-management.md)
+- [frontend](services/frontned.md)
+- [javascript](services/javascript.md)
 
 _The karma engine and statistics systems are pending, because they are key elements to what I want to build, but are also complicated and may not be possible to have built in time._
 
