@@ -20,3 +20,20 @@ One such action is a voting permit, which allows members to vote for moderators 
 
 Ideally moderator and administrator privileges would be rolling, and the community will be responsible for handling assignment.  Those with moderator and administrator privileges may also have additional options such as to increase the number of available moderator/administrator positions.  This allows the system to scale based on need and not because every member had enough karma-points to campaign.
 
+
+## design considerations
+
+We need to decide when to add or subtract from member karma.
+
+Contributions to the system or system meta-data should generate positive karma.  For example, posting, creating a new thread, adding tags, creating new tags, and filling out profile information.
+
+**Karma should never be negative.**  However, it can be reduced to zero in these ways:
+
+- negative user feedback
+- spending
+
+_We may also consider depletion of karma over durations of inactivity, or whether to use member activity as an augmentation in the amount of karma earned when acting._
+
+Members should be able to effect eachothers karma via feedback.  For this to work, we need members to provide feedback or critique eachothers posts.  Negative feedback will require supporting text.  Neither negative or positive feedback will have a great impact alone, if members agree with feedback they should specify it.  In this way we can apply exponential growth to the points.
+
+Another consideration is whether to tie karma to the permissions system directly.  If we make karma an optional cost for all actions it bakes karma directly into the system.  This approach may even make it possible to spot and eliminate bots easily.  If posting or opening threads costs karma, first signups cannot do either before building some (perhaps by reading posts and other actions).
