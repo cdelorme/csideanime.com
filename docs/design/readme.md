@@ -23,8 +23,10 @@ This is a set of documents to detail the design plans, and keep track of changes
     - api core
         - settings
     - code layers
+    - design concepts
 - [services](services.md)
     - concerns
+    - solutions
 - [data architecture](data-architecture.md)
 - [release plans](release-plans.md)
     - alpha

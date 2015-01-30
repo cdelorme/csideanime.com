@@ -43,9 +43,9 @@ Our source combines two projects, the API and the static client source, so we ha
 - static site deployment
 - executable api deployment
 
-For our static site deployment, we can simply setup a cronjob to pull the latest source from master on a regular schedule (say hourly), or on demand manually.  With nginx caching set to 5 minutes changes will trickle through shortly after.  If we use appropriate git-hashes in query-strings we can eliminate caching as well.
+For our static site deployment, we can simply setup a cronjob to pull the latest source from master on a regular schedule (say hourly), or on demand manually.  With nginx caching set to 5 minutes changes will trickle through shortly after.  Applying the short git-hash to javascript and css assets will address client-side caching.
 
-For the api it is recommended that you keep your production server light and compile from another location, such as a staging or development system.  Ideally you should be able to simply `scp` the file onto the server, but for first-install you will need to add a layer to launch it at boot time.  Alternative deployment methods include continuous integration and a deploy script that executes with the cronjob that pulls new masters, uploading a binary to S3 and copying it onto one or more machines.  Of course something like ansible could also be used to easily distribute a new binary to many servers.
+For the api it is recommended that you keep your production server light-weight and compile from another location, such as a staging or development system.  Ideally you should be able to simply `scp` the executable onto the server and replace then restart the service, but for first-install you will need to add a layer to launch it at boot time.  _I recommend using the `monit` package to ensure the executable runs and remains running._  The alternative is a full continuous integration stack which pulls the latest source, recompiles, runs any tests, and restarts the service.  This is a more _complete_ solution but it introduces a bunch of additional components (and points of failure) to the production box.
 
 
 ## feature support
@@ -78,11 +78,13 @@ Using features such as `pushState` to change the URL dynamically while loading n
 
 - index.html
 - css/main.css
-- js/main/js
+- js/main.js
 
-_Ideally we would want a source map for production errors, but for the start we may just use the code without minification._  For development and testing we want the separate and fully spaced versions of these files, and a utility to merge them.
+_Ideally we would want a source map for production error handling, but for the start we may just use the code without minification._  For development and testing we want the separate files with appropriate code formatting.
 
-The basic index.html page may contain a skeletal layout, plus some hard-coded elements like the default menu, login form, static footer, and header.  Most of this content should be able to be rebuilt using javascript once the requests begin.
+The basic index.html page may contain a skeletal layout, plus some hard-coded elements like the default menu, login form, static footer, and header.  Anything dynamic may be rebuilt on-demand by javascript.
+
+_In the future a completely static version of the site may be built as well._
 
 **Any and all media should be loaded from our CDN and not hosted by Digital Ocean.**
 
@@ -104,7 +106,7 @@ Centralized callbacks means incoming data can be validated globally from the ser
 
 At the moment we do not have a UX engineer. However, when we begin beta development I would be open to having someone fill this position to help us improve the overall design of the site for our members.
 
-Since we are building an API the good news is we can easily swap out one front­end for another.  With a well ­built front-end employing the immediate­-render technique, we can possibly also reuse all the client­-side services that register data-­callbacks and really only need to rebuild the rendering logic.
+Since we are building an independent API the good news is we can easily swap out one front­end for another.  With a well ­built front-end employing the immediate­-render technique, we can possibly also reuse all the client­-side services that register data-­callbacks and really only need to rebuild the rendering logic.
 
 
 # api core
@@ -143,9 +145,9 @@ Finally, we supply the router to a new server, and have the server begin listeni
 
 ### settings
 
-@TODO
+_I would like to identify all application-level settings and document them here._
 
-I would like to identify all application-level settings and document them here.
+    @TODO
 
 
 ## code layers

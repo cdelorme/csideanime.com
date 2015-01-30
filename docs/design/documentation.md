@@ -8,7 +8,7 @@ I want to have comprehensive documentation for the project.  Ideally the documen
 
 ## [design](./)
 
-Otherwise the "**Design Document**", which details everything about the project.
+The "**Design Document**", which details everything about the project.
 
 It will describe everything about the project in a language-agnostic way, with enough detail that it can be used directly for development.
 
