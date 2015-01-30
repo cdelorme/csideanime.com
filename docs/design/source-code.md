@@ -142,6 +142,8 @@ Controllers contain the routes, and the router uses wildcard­left routing to re
 
 Finally, we supply the router to a new server, and have the server begin listening for incoming traffic.
 
+**No data will ever actually be deleted from the database by the system.  Instead any content that can be deleted should have a flag for deletion.**
+
 
 ### settings
 
