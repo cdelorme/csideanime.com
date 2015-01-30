@@ -17,3 +17,15 @@ Integrating custom foreground and background colors and the ability to turn them
 One consideration is whether to store the name or the `_id` of the member.  If we store the `_id` we need to hit two documents to gather the information, but if we store the name then we would have to update all the chat records if/when they change their display name.
 
 My solution will likely be to ignore display name changes, and store both the `_id` along with the display name for record-keeping.  We then have the option of running a batch update to cleanup the records (eventually consistent).
+
+## structures
+
+- `chat` collection
+    - `message` document
+        - member name (at time of post)
+        - member_id
+        - timestamp
+        - settings (json string?)
+        - deleted flag
+
+_We may be able to store the member name inside the json settings string, since it's message-specific metadata (like colors which may be supported)._
