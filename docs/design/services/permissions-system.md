@@ -29,6 +29,8 @@ _Because there is no distinguishing factor such as boards that allows heirarchic
 
 **Banning will not be related to the permissions system at all.**  Banned members will simply be denied access to login, preventing already logged in members from performing any action.  The easiest way to apply this check is to make the acquisition of the member part of the base controller.
 
+Two factors should belong to any checks in the system.  First, whether they have the action in their list, and second is whether they own the object in question.  For example, a member cannot perform the "delete member" action, unless it is their own member record.
+
 
 ## considerations
 
@@ -40,24 +42,41 @@ It would be nice to provide toggles on the front-end for features that complicat
 
 I (cdelorme) carefully considered the addition of a `Developer` group with all access rights.  The concern was that developers are not necissarily acting administrators, but need privileges to test the code.  This distinction is important, but is a contradiction to the member-voting concept.
 
+The lack of metadata associated with actions and groups may require greater complexity.  However, for now I'd rather we try to avoid complexity and simply make sure actions and groups are well-named.
+
 
 ## actions
 
 Permission actions include:
 
 - create a group
-- edit a group
+- edit groups
+- get groups
 - delete a group
 - add an action (to a group)
 - delete an action (from a group)
+
+Standard UI shows all groups and actions in a single table, so edits will likely be submitted all at once.
+
+Groups should never need to be acquired singularly, we can always assume the ACL will need all of them.
 
 _Deleting a group simply adds a `deleted` field._
 
 
 ## model(s)
 
-- name (string)
-- actions (array/string)
-- icon (string/url)
-- management (boolean)
-- dogtag (boolean)
+The model will look like this:
+
+    {
+        "name": "Administrator",
+        "actions": [
+                "Delete Member",
+            ],
+        "icon": "https://www.amazons3.com/admin-dogtag.jpg",
+        "management": true,
+        "dogtag": true
+    }
+
+The name is the only required field.  The dogtag and management fields should never exist with a value of false (absense assumes false).  The dogtag field indicates no actions will exist, while the management field indicates that it will be used for managing actions and should contain a "complete" list of available actions.  The icon field is optional, and should contain a URL to an image if desired.
+
+_Specifications of the dimensions for icons is not yet determined._
