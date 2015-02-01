@@ -34,9 +34,11 @@ func main() {
 
 	// @todo(casey):prepare controlers
 	permissionsController := controllers.Permissions{}
+	membersController := controllers.Members{}
 
 	// @todo(casey):register controllers with router
 	router.RegisterController(&permissionsController)
+	router.RegisterController(&membersController)
 
 	// display router info
 	logger.Info("Router: %+v", router)
