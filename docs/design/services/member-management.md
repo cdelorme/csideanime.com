@@ -1,11 +1,18 @@
 
 # member management
 
-Member information will be stored in a single collection, but contain multiple sub-documents for public and private profile information.  This allows us to separate what can be publicly accessible to other members from what is privately available to the member themselves.
+Member information will be stored in a document, and be split into several sub-documentsf.  This allows us to separate things such as public and private profile information.
 
-The member name, email, and password hash will be stored at top level, while the public and privately accessible profile information will be in separate containers.  One such example is a history of display names and timestamps for the member (allowing other members to verify older messages).
+The basic design should include top-level storage of email, name, and password hash.
 
-We will also want to store information such as the
+
+## considerations
+
+I am not entirely certain how we can specify whether or not each section of profile information is public or private, but ideally private is a copy of public **plus** additional information.
+
+Users can choose a display name, and change it regularly.  _While we may associate a karma cost to doing so,_ the best solution to identity theft with this system is to provide a history of their names and timestamps as part of their public profile.  _Another related concern is that since all data is being sent to and from an API, we would need a method of preventing users from changing their own username history in spite of it being part of their user profile._
+
+Currently logging in, checking in (as an already logged in user running a new request), and things like username completion are likely to be part of the members system, **however** I am considering the creation of a separate but dependent "auth" component that accesses the same data.  This would separate flow-control concerns, and allow our base controller to handle those sorts of things.
 
 
 ## actions
@@ -27,16 +34,6 @@ _Any part of a member which is modified (such as profile or groups) is all part 
 
 We can use a timestamp field for banning.  No ban will be "permanent", but instead we can assign a duration, and easily check against todays timestamp to prevent access.
 
-## closely related systems
-
-Decoupling these systems may be difficult because they will likely rely on eachothers data:
-
-- karma
-- statistics
-- private conversations
-- uploads/media
-- blogs
-
 
 ## model(s)
 
@@ -52,6 +49,7 @@ The model will look like this:
         },
         "private": {},
         "oauth": [],
+        "groups": []
     }
 
 Passwords will be stored as hashes, and logins will accept both the parent name or display name.
@@ -63,3 +61,14 @@ The private object is a copy of the profile object with any information the user
 _The profile object itself has not been fully architected and will likely grow organically._
 
 Open authentication is not yet planned out, so it's an empty array.
+
+
+## closely related systems
+
+Decoupling these systems may be difficult because they will likely rely on eachothers data:
+
+- karma
+- statistics
+- private conversations
+- uploads/media
+- blogs
