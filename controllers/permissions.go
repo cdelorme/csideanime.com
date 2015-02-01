@@ -9,18 +9,18 @@ type Permissions struct {
 }
 
 // registration
-func (base *Base) RegisterWithRouter(
+func (permissions *Permissions) RegisterWithRouter(
 	addRoute func(
 		uri string,
 		callback func(
 			writer http.ResponseWriter,
 			request *http.Request),
 		methods ...string)) {
-	addRoute("/permissions", base.CreateGroup, "PUT")
-	addRoute("/permissions", base.CreateGroup, "POST")
-	addRoute("/permissions", base.CreateGroup, "DELETE")
-	addRoute("/permissions/action", base.AddAction, "POST")
-	addRoute("/permissions/action", base.DeleteAction, "DELETE")
+	addRoute("/permissions", permissions.CreateGroup, "PUT")
+	addRoute("/permissions", permissions.CreateGroup, "POST")
+	addRoute("/permissions", permissions.CreateGroup, "DELETE")
+	addRoute("/permissions/action", permissions.AddAction, "POST")
+	addRoute("/permissions/action", permissions.DeleteAction, "DELETE")
 
 }
 

@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"encoding/json"
 	"net/http"
 	"strings"
 )
@@ -8,16 +9,6 @@ import (
 type Base struct {
 	HandleBadRequest          func(writer http.ResponseWriter, request *http.Request)
 	HandleInternalServerError func(writer http.ResponseWriter, request *http.Request)
-}
-
-// stub function (this one adds no routes)
-func (base *Base) RegisterWithRouter(
-	addRoute func(
-		uri string,
-		callback func(
-			writer http.ResponseWriter,
-			request *http.Request),
-		methods ...string)) {
 }
 
 // bad request handling
@@ -50,7 +41,7 @@ func (base *Base) InternalServerError(writer http.ResponseWriter, request *http.
 func (base *Base) Parse(path string) map[string]interface{} {
 	pairs := make(map[string]interface{}, 0)
 	values := strings.Split(path, "/")
-	for k, i := range values {
+	for i, k := range values {
 		if i < len(values) {
 			pairs[k] = values[i+1]
 		}

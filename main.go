@@ -3,6 +3,8 @@ package main
 import (
 	"net/http"
 
+	"./controllers"
+
 	"github.com/cdelorme/go-log"
 	// "github.com/cdelorme/go-config"
 	// "github.com/cdelorme/go-option"
@@ -31,7 +33,10 @@ func main() {
 	router := routing.Router{}
 
 	// @todo(casey):prepare controlers
+	permissionsController := controllers.Permissions{}
+
 	// @todo(casey):register controllers with router
+	router.RegisterController(&permissionsController)
 
 	// display router info
 	logger.Info("Router: %+v", router)
