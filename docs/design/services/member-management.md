@@ -47,6 +47,7 @@ The model will look like this:
             "names": [],
             "email": "public@mail.com"
         },
+        "settings": {},
         "private": {},
         "oauth": [],
         "groups": []
@@ -57,6 +58,8 @@ Passwords will be stored as hashes, and logins will accept both the parent name 
 The `names` array is a historical record with names and timestamps when a name was adopted.
 
 The private object is a copy of the profile object with any information the user did not wish to make public.
+
+The `settings` object is a key-value pair of specific toggles, which may include things like a language filter or adult content.
 
 _The profile object itself has not been fully architected and will likely grow organically._
 

@@ -24,6 +24,8 @@ Here tentative outline of services for alpha release:
 
 _The karma engine and statistics systems are pending, because they are key elements to what I want to build, but are also complicated and may not be possible to have built in time._
 
+**The chat system may be added to this list given its popularity and utility.**
+
 
 ## beta release
 
