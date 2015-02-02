@@ -28,18 +28,20 @@ func main() {
 	Address := "127.0.0.1:8080"
 	// @note: port 80 is reserved on osx and won't run
 
-	// prepare router
+	// prepare router /w alpha api prefix
 	router := routing.Router{Prefix: "/api/alpha"}
 
 	// prepare controlers
 	tagsController := controllers.Tags{}
 	permissionsController := controllers.Permissions{}
 	membersController := controllers.Members{}
+	threadsController := controllers.Threads{}
 
 	// register controllers with router
 	router.RegisterController(&tagsController)
 	router.RegisterController(&permissionsController)
 	router.RegisterController(&membersController)
+	router.RegisterController(&threadsController)
 
 	// display router info
 	logger.Info("Router: %+v", router)
