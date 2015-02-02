@@ -24,6 +24,13 @@ func (base *Base) BadRequest(writer http.ResponseWriter, request *http.Request) 
 	writer.Write(jsonMessage)
 }
 
+func (base *Base) StartOperations() {
+	// return uncacheable objects used in all operations
+	// authentication for member login/checkin, or guest model
+	// access control list with groups & actions
+	//
+}
+
 // internal server error handling
 func (base *Base) InternalServerError(writer http.ResponseWriter, request *http.Request) {
 	if base.HandleInternalServerError != nil {
