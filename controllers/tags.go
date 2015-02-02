@@ -17,9 +17,9 @@ func (tags *Tags) RegisterWithRouter(
 			request *http.Request),
 		methods ...string)) {
 	addRoute("/tags", tags.CreateTag, "PUT")
-	addRoute("/tags", tags.EditTag, "POST")
+	addRoute("/tag", tags.EditTag, "POST")
 	addRoute("/tags", tags.GetTags, "GET")
-	addRoute("/tags", tags.DeleteTag, "DELETE")
+	addRoute("/tag", tags.DeleteTag, "DELETE")
 }
 
 func (tags *Tags) CreateTag(writer http.ResponseWriter, request *http.Request) {
