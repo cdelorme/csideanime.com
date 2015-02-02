@@ -52,9 +52,10 @@ _We don't yet have a class 2 ssl certificate so we do not have a sub-domain at t
 
 **Notes:**
 
+- we will be using `PUT` to perform `PATCH`, because the specifications for `PUT` are restrictive
 - all endpoints will be compatible for both singular and plural dictation
-- endpoints allow/ignore suffixed slashes
-- some service routes support and mayexpect clean-url parameters:
+- endpoints allow/ignore suffixed slashes (eg. `api/v1/threads` and `api/v1/threads/` both work)
+- some service routes support and may expect clean-url parameters:
     - access a thread: `https://www.csideanime.com/api/v1/posts/thread/#`
     - get paginated posts by thread: `https://www.csideanime.com/api/v1/posts/thread/#/index/1/count/25`
     - posts by member: `https://www.csideanime.com/api/v1/posts/member/#`
@@ -66,4 +67,3 @@ API Services:
 - [threads](#)
 - [tags](#)
 - [members](#)
-

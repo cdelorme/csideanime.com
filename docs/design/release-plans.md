@@ -18,8 +18,7 @@ Here tentative outline of services for alpha release:
 - [member management](services/member-management.md)
 - [permissions system](services/permissions-system.md)
 - [tag management](services/tag-management.md)
-- [thread management](services/thread-management.md)
-- [post management](services/post-management.md)
+- [thread & post management](services/thread-management.md)
 - [frontend](services/frontned.md)
 - [javascript](services/javascript.md)
 

@@ -56,7 +56,7 @@ Permission actions include:
 - add an action (to a group)
 - delete an action (from a group)
 
-Standard UI shows all groups and actions in a single table, so edits will likely be submitted all at once.
+Standard UI shows all groups and actions in a single table, so edits for managed groups will probably involve sending all of them at once.  _This is a slight deviation from standard REST practices_, but it better supports how the data is used and interacted with.
 
 Groups should never need to be acquired singularly, we can always assume the ACL will need all of them.
 
