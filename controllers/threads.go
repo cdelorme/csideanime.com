@@ -16,8 +16,8 @@ func (threads *Threads) RegisterWithRouter(
 			writer http.ResponseWriter,
 			request *http.Request),
 		methods ...string)) {
-	addRoute("/threads", threads.CreateThread, "PUT")
-	addRoute("/thread", threads.EditThread, "POST")
+	addRoute("/threads", threads.CreateThread, "POST")
+	addRoute("/thread", threads.EditThread, "PUT")
 	addRoute("/thread", threads.DeleteThread, "DELETE")
 	addRoute("/thread", threads.GetThread, "GET")
 	addRoute("/threads", threads.GetThreads, "GET")
@@ -25,8 +25,8 @@ func (threads *Threads) RegisterWithRouter(
 	addRoute("/threads/recent", threads.GetRecentThreads, "GET")
 	addRoute("/threads/active", threads.GetActiveThreads, "GET")
 	addRoute("/threads/member", threads.GetPostsByMember, "GET")
-	addRoute("/posts", threads.CreatePost, "PUT")
-	addRoute("/post", threads.EditPost, "POST")
+	addRoute("/posts", threads.CreatePost, "POST")
+	addRoute("/post", threads.EditPost, "PUT")
 	addRoute("/post", threads.DeletePost, "DELETE")
 	addRoute("/posts/member", threads.GetThreadsByMember, "GET")
 }

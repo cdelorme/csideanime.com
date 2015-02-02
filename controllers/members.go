@@ -16,8 +16,8 @@ func (members *Members) RegisterWithRouter(
 			writer http.ResponseWriter,
 			request *http.Request),
 		methods ...string)) {
-	addRoute("/members", members.CreateMember, "PUT")
-	addRoute("/members", members.EditMember, "POST")
+	addRoute("/members", members.CreateMember, "POST")
+	addRoute("/members", members.EditMember, "PUT")
 	addRoute("/members", members.DeleteMember, "DELETE")
 	addRoute("/members", members.GetMember, "GET")
 	addRoute("/members/login", members.Login, "POST")

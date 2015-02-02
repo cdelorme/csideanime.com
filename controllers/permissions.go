@@ -16,12 +16,12 @@ func (permissions *Permissions) RegisterWithRouter(
 			writer http.ResponseWriter,
 			request *http.Request),
 		methods ...string)) {
-	addRoute("/permissions", permissions.CreateGroup, "PUT")
-	addRoute("/permissions", permissions.EditGroup, "POST")
+	addRoute("/permissions", permissions.CreateGroup, "POST")
+	addRoute("/permissions", permissions.EditGroup, "PUT")
 	addRoute("/permissions", permissions.GetGroups, "GET")
 	addRoute("/permissions", permissions.DeleteGroup, "DELETE")
-	addRoute("/permissions/action", permissions.AddAction, "POST")
-	addRoute("/permissions/action", permissions.DeleteAction, "DELETE")
+	addRoute("/permission/action", permissions.AddAction, "PUT")
+	addRoute("/permission/action", permissions.DeleteAction, "DELETE")
 }
 
 func (permissions *Permissions) CreateGroup(writer http.ResponseWriter, request *http.Request) {
