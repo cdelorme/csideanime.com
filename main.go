@@ -24,8 +24,8 @@ func main() {
 	// @todo(casey): load options and merge with config
 	// @todo(casey): acquire default settings
 
-	// temporarily assume 127.0.0.1:8080 for testing
-	Address := "127.0.0.1:8080"
+	// temporarily assume 127.0.0.1:9010 for testing
+	Address := "127.0.0.1:9010"
 	// @note: port 80 is reserved on osx and won't run
 
 	// prepare router /w alpha api prefix
