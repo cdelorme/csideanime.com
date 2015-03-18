@@ -194,6 +194,47 @@ footer .link {
     clear: both;
 }
 
+/* form styles */
+form>input[type="text"], form>input[type="password"] {
+    border-radius: 8px;
+    border-style: 1px solid #3d3d3d;
+    padding: 5px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+input, button {
+    font-size: 1.4em;
+}
+button {
+    padding: 10px 15px;
+    margin: 20px auto;
+    color: #FFFDFD;
+    background-color: #555;
+    border: 0 none;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    cursor: pointer;
+    background: -webkit-linear-gradient(#888, #555);
+    background: linear-gradient(#888, #555);
+}
+button:hover {
+    background-color: #4d4d4d;
+    background: -webkit-linear-gradient(#4d4d4d, #3c3c3c);
+    background: linear-gradient(#4d4d4d, #3c3c3c);
+}
+button.blue {
+    background-color: #3d7ac7;
+    background: -webkit-linear-gradient(#6eadf9, #3d7ac7);
+    background: linear-gradient(#6eadf9, #3d7ac7);
+}
+button.blue:hover{
+    background: #4583D1;
+    background: -webkit-linear-gradient(#4583D1, #4583D1);
+    background: linear-gradient(#4583D1, #4583D1);
+}
+
 /* responsive font sizes and link styles */
 @media only screen and (min-width: 981px) {
     html {
@@ -212,6 +253,9 @@ footer .link {
     }
     nav li {
         display: inline;
+    }
+    form>input[type="text"], form>input[type="password"] {
+        width: 50%;
     }
 }
 
