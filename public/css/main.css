@@ -43,6 +43,7 @@ body {
     line-height: 1.4;
     color: #333;
     background-color: #fff;
+    min-width: 400px;
 }
 h1 {
     font-size: 1.75em;
@@ -174,26 +175,6 @@ nav li {
     list-style: none;
 }
 
-/* footer styles */
-footer {
-    text-align: center;
-}
-footer .link {
-    display: inline-block;
-    width: 29px;
-    height: 29px;
-    margin: 0 15px;
-    overflow: hidden;
-    background-repeat: no-repeat;
-}
-
-/* clearfix */
-.group:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
 /* form styles */
 form>input[type="text"], form>input[type="password"] {
     border-radius: 8px;
@@ -203,7 +184,7 @@ form>input[type="text"], form>input[type="password"] {
     width: 100%;
     box-sizing: border-box;
 }
-input, button {
+input, button, a {
     font-size: 1.4em;
 }
 button {
@@ -234,6 +215,98 @@ button.blue:hover{
     background: -webkit-linear-gradient(#4583D1, #4583D1);
     background: linear-gradient(#4583D1, #4583D1);
 }
+button:disabled, button:disabled:hover {
+    background: #ccc;
+    color: #eee;
+    cursor: default;
+}
+form input.create {
+    display: none;
+}
+form.create input.create {
+    display: block;
+}
+
+/* oath buttons */
+div.oauth {
+    text-align: center;
+    border-top: 1px solid #ccc;
+    margin: 20px auto;
+    padding-top: 10px;
+}
+a.btn {
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border-radius: 8px;
+    text-align: center;
+    vertical-align: middle;
+}
+.oauth .btn {
+    font-size: 2.5em;
+    padding: .15em .3em;
+    min-width: 40px;
+}
+a.btn:hover {
+    text-decoration: none;
+}
+a.btn:active {
+    text-decoration: none;
+}
+
+/* oauth links to be replaced with icons */
+a.facebook-oauth {
+    background: #3b5998;
+    color: #fff;
+}
+a.facebook-oauth:active {
+    background-color:#2d4373;
+    border-color:rgba(0,0,0,0.2)
+}
+a.google-oauth {
+    background: #dd4b39;
+    color: #fff;
+    font-family: 'Catull Regular';
+}
+a.google-oauth span {
+    font-size: .5em;
+}
+a.google-oauth:active {
+    background-color:#c23321;
+    border-color:rgba(0,0,0,0.2)
+}
+a.twitter-oauth {
+    background-color:#55acee;
+    border-color:rgba(0,0,0,0.2)
+}
+a.twitter-oauth:active {
+    background-color:#2795e9;
+    border-color:rgba(0,0,0,0.2)
+}
+
+/* footer styles */
+footer {
+    text-align: center;
+    font-style: italic;
+}
+footer .link {
+    display: inline-block;
+    width: 29px;
+    height: 29px;
+    margin: 0 15px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+}
+
+/* clearfix */
+.group:after {
+    content: "";
+    display: table;
+    clear: both;
+}
 
 /* responsive font sizes and link styles */
 @media only screen and (min-width: 981px) {
@@ -254,7 +327,7 @@ button.blue:hover{
     nav li {
         display: inline;
     }
-    form>input[type="text"], form>input[type="password"] {
+    form {
         width: 50%;
     }
 }

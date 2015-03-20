@@ -19,12 +19,14 @@
         </header>
         <div class='content group'>
             <form action='#' method='POST' onsubmit='return false;'>
-                <input type='text' name='email' placeholder='email...' autofocus />
-                <input type='text' name='password' placeholder='display name...' />
-                <input type='password' name='password' placeholder='password...' />
-                <button>Login</button>
-                <button class='blue'>Create Account</button>
-                <a href='#' onclick='return false;'>forgot password?</a>
+                <input type='text' name='email' placeholder='email or username' autofocus />
+                <input type='password' name='password' placeholder='password' />
+                <input class='create' type='password' name='password-two' placeholder='password' />
+                <input class='create' type='text' name='display-name' placeholder='email or username' autofocus />
+                <button disabled>Login</button>
+                <button class='blue' disabled>Create Account</button>
+                <a href='#' class='btn' onclick='return false;'>forgot password?</a>
+                <input type='hidden' name='name' placeholder='display name' />
             </form>
         </div>
         <footer class='group'>
