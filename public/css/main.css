@@ -216,9 +216,10 @@ button.blue:hover{
     background: linear-gradient(#4583D1, #4583D1);
 }
 button:disabled, button:disabled:hover {
+    pointer-events: none;
     background: #ccc;
     color: #eee;
-    cursor: default;
+    cursor: not-allowed;
 }
 form input.create {
     display: none;
