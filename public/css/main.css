@@ -1,6 +1,6 @@
 
-/* fonts - still debating */
-/*@font-face {
+/* fonts */
+@font-face {
     font-family: 'aller';
     src: url('https://d2xxklvztqk0jd.cloudfront.net/fonts/aller.ttf') format('truetype');
     font-weight: normal;
@@ -11,7 +11,7 @@
     src: url('https://d2xxklvztqk0jd.cloudfront.net/fonts/droidsans.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
-}*/
+}
 
 /**
  * css reset
@@ -180,8 +180,8 @@ form>input[type="text"], form>input[type="password"] {
     border-radius: 8px;
     border-style: 1px solid #3d3d3d;
     padding: 5px;
-    display: block;
-    width: 100%;
+    display: inline-block;
+    width: 80%;
     box-sizing: border-box;
 }
 input, button, a {
@@ -199,6 +199,7 @@ button {
     cursor: pointer;
     background: -webkit-linear-gradient(#888, #555);
     background: linear-gradient(#888, #555);
+    min-width: 40%;
 }
 button:hover {
     background-color: #4d4d4d;
@@ -221,10 +222,10 @@ button:disabled, button:disabled:hover {
     color: #eee;
     cursor: not-allowed;
 }
-form input.create {
+form input.register {
     display: none;
 }
-form.create input.create {
+form.register input.register {
     display: block;
 }
 
@@ -234,6 +235,47 @@ div.oauth {
     border-top: 1px solid #ccc;
     margin: 20px auto;
     padding-top: 10px;
+}
+.btn.google-oauth {
+    background: #dd4b39;
+    background-image: url("https://d1ec88z179f6hs.cloudfront.net/images/oauth/google-plus.png");
+}
+.btn.google-oauth:active {
+    background-color: #c23321;
+}
+.btn.facebook-oauth {
+    background: #3b5998;
+    background-image: url("https://d1ec88z179f6hs.cloudfront.net/images/oauth/facebook.png");
+}
+.btn.facebook-oauth:active {
+    background-color: #2d4373;
+}
+.btn.twitter-oauth {
+    background: #55acee;
+    background-image: url("https://d1ec88z179f6hs.cloudfront.net/images/oauth/twitter.png");
+}
+.btn.twitter-oauth:active {
+    background-color: #2795e9;
+}
+.btn.github-oauth {
+    background: #222;
+    background-image: url("https://d1ec88z179f6hs.cloudfront.net/images/oauth/github.png");
+}
+.btn.github-oauth:active {
+    background-color: #000;
+}
+.oauth .btn {
+    padding: .15em .3em;
+    width: 48px;
+    height: 48px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.oauth .btn:active {
+    border-color:rgba(0,0,0,0.2)
+}
+a.btn:hover, a.btn:active {
+    text-decoration: none;
 }
 a.btn {
     display: inline-block;
@@ -245,47 +287,6 @@ a.btn {
     border-radius: 8px;
     text-align: center;
     vertical-align: middle;
-}
-.oauth .btn {
-    font-size: 2.5em;
-    padding: .15em .3em;
-    min-width: 40px;
-}
-a.btn:hover {
-    text-decoration: none;
-}
-a.btn:active {
-    text-decoration: none;
-}
-
-/* oauth links to be replaced with icons */
-a.facebook-oauth {
-    background: #3b5998;
-    color: #fff;
-}
-a.facebook-oauth:active {
-    background-color:#2d4373;
-    border-color:rgba(0,0,0,0.2)
-}
-a.google-oauth {
-    background: #dd4b39;
-    color: #fff;
-    font-family: 'Catull Regular';
-}
-a.google-oauth span {
-    font-size: .5em;
-}
-a.google-oauth:active {
-    background-color:#c23321;
-    border-color:rgba(0,0,0,0.2)
-}
-a.twitter-oauth {
-    background-color:#55acee;
-    border-color:rgba(0,0,0,0.2)
-}
-a.twitter-oauth:active {
-    background-color:#2795e9;
-    border-color:rgba(0,0,0,0.2)
 }
 
 /* footer styles */
