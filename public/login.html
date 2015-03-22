@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang='en'>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <title>Login &amp; Signup | csideanime.com</title>
+        <link rel='icon" type="image/x-icon' href='https://d1ec88z179f6hs.cloudfront.net/images/favicon.ico' />
+        <link rel='stylesheet' type='text/css' href='/css/main.css'>
+    </head>
+    <body>
+        <header class='group'>
+            <nav>
+                <ul>
+                    <li><a href='/index.html'>index</a></li>
+                    <li><a href='/login.html'>login</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class='content group'>
+            <form action='#' class='login' method='POST' onsubmit='return false;'>
+                <input type='text' name='email' placeholder='email or username' autofocus />
+                <input type='password' name='password' placeholder='password' />
+                <input class='register' type='password' name='password-confirmation' placeholder='confirm password' />
+                <input class='register' type='text' name='display-name' placeholder='email or username' autofocus />
+                <button disabled>Sign In</button>
+                <button class='blue' disabled>Register</button>
+                <a href='#' class='btn' onclick='return false;'>forgot password?</a>
+                <input type='hidden' name='name' placeholder='display name' />
+                <div class='oauth'>
+                    <a href='#' class='btn google-oauth'></a>
+                    <a href='#' class='btn facebook-oauth'></a>
+                    <a href='#' class='btn twitter-oauth'></a>
+                    <a href='#' class='btn github-oauth'></a>
+                </div>
+            </form>
+        </div>
+        <footer class='group'>
+            <p>csideanime.com © 2015</p>
+            <div class='scripts'>
+                <script type='text/javascript' src='/js/main.js' async></script>
+            </div>
+        </footer>
+    </body>
+</html>
