@@ -44,6 +44,7 @@ The model will look like this:
         "password": "hash",
         "profile": {
             "name": "display name",
+            "joined": #
             "names": [],
             "email": "public@mail.com"
         },

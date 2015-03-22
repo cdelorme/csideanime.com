@@ -83,6 +83,7 @@ Indexing will depend on the queries we eventually end up running.
 A post model looks like this:
 
     {
+        "message": "...",
         "author": #,
         "authorName": "name",
         "created": #,
