@@ -31,6 +31,9 @@ func main() {
 	// prepare router /w alpha api prefix
 	router := routing.Router{Prefix: "/api/alpha"}
 
+	// establish shared database connection?
+	// "gopkg.in/mgo.v2"
+
 	// prepare controlers
 	tagsController := controllers.Tags{}
 	permissionsController := controllers.Permissions{}
