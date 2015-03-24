@@ -176,7 +176,7 @@ nav li {
 }
 
 /* form styles */
-form>input[type="text"], form>input[type="password"] {
+input[type="text"], input[type="password"] {
     border-radius: 8px;
     border-style: 1px solid #3d3d3d;
     padding: 5px;
@@ -216,6 +216,7 @@ button.blue:hover{
     background: -webkit-linear-gradient(#4583D1, #4583D1);
     background: linear-gradient(#4583D1, #4583D1);
 }
+button.disabled, button.disabled:hover,
 button:disabled, button:disabled:hover {
     pointer-events: none;
     background: #ccc;
@@ -227,6 +228,29 @@ form input.register {
 }
 form.register input.register {
     display: block;
+}
+form .messages {
+    display: inline-block;
+    border-radius: 8px;
+    margin-bottom: 4px;
+    overflow: hidden;
+    padding: 8px;
+    min-width: 80%;
+}
+form .messages.error {
+    border: 2px solid rgb(226, 83, 83);
+    color: rgb(255, 255, 255);
+    background-color: rgb(255, 129, 129);
+}
+form .messages.info {
+    border: 2px solid rgb(255, 194, 55);
+    color: rgb(130, 98, 0);
+    background-color: rgb(255, 234, 168);
+}
+form .messages.success {
+    border: 2px solid rgb(124, 221, 119);
+    color: rgb(0, 100, 0);
+    background-color: rgb(188, 245, 188);
 }
 
 /* oath buttons */
@@ -287,6 +311,38 @@ a.btn {
     border-radius: 8px;
     text-align: center;
     vertical-align: middle;
+}
+
+/* after-images */
+.after-ok:after {
+    content: "";
+    width: 32px;
+    height: 32px;
+    background-image: url("https://d1ec88z179f6hs.cloudfront.net/images/32/ok.png");
+    background-repeat: no-repeat;
+    top: 6px;
+    position: relative;
+    display: inline-block;
+}
+.after-add:after {
+    content: "";
+    width: 32px;
+    height: 32px;
+    background-image: url("https://d1ec88z179f6hs.cloudfront.net/images/32/add.png");
+    background-repeat: no-repeat;
+    top: 6px;
+    position: relative;
+    display: inline-block;
+}
+.after-error:after {
+    content: "";
+    width: 32px;
+    height: 32px;
+    background-image: url("https://d1ec88z179f6hs.cloudfront.net/images/32/error.png");
+    background-repeat: no-repeat;
+    top: 6px;
+    position: relative;
+    display: inline-block;
 }
 
 /* footer styles */
